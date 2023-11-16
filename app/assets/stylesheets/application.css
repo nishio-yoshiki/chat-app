@@ -33,6 +33,23 @@
   align-items: center
 }
 
+.header-name a {
+  font-size: 16px;
+  color: #FAFAFA;
+  text-decoration: none
+}
+
+.create-room {
+  font-size: 10px
+}
+
+.create-room a {
+  border: 1px solid lightblue;
+  padding: 14px;
+  color: deepskyblue;
+  text-decoration: none
+}
+
 .rooms {
   background-color: #2f3e51;
   height: calc(100vh - 100px);
@@ -40,21 +57,32 @@
   overflow: scroll
 }
 
+.room {
+  padding: 20px 0 40px
+}
+
+.room-name a {
+  text-decoration: none;
+  color: white
+}
+
 .chat {
   background-color: #ffffff;
   width: calc(100% - 300px);
-  padding: 0 20px;
 }
 
 .chat-header {
   height: 100px;
   padding: 0 40px;
+  display: flex;
+  justify-content: space-between
 }
 
 .messages {
-  background-color: #fafafa;
+  background-color: #FAFAFA;
   height: calc(100vh - 100px - 90px);
   padding: 46px 40px 0;
+  overflow: scroll
 }
 
 .form {
