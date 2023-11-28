@@ -9,12 +9,11 @@
    </div>
    <div class="rooms">
       <div class="room">
-        <div class="room-name">
-          <a href="/rooms/14/messages">teckroom1</a>
-        </div>
-        <div class="room-name">
-          <a href="/rooms/14/messages">techroom2</a>
-        </div>
+        <% @room.each do |room| %>
+          <div class="room-name">
+            <a href="/rooms/room.id/messages"><%=room.name%></a> 
+          </div>
+        <% end %>
       </div>
    </div>
 </div>
