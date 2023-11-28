@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-
   before_action :authenticate_user!, only: [:index]
   
   def index
@@ -11,6 +10,4 @@ class MessagesController < ApplicationController
 
   def edit
   end
-
-
 end
