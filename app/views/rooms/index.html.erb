@@ -11,7 +11,7 @@
       <div class="room">
         <% @room.each do |room| %>
           <div class="room-name">
-            <%= link_to room.name, messages_path(room_id: room.id) %>
+            <a href="/messages"><%=room.name%></a> 
           </div>
         <% end %>
       </div>
