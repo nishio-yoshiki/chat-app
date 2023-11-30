@@ -2,64 +2,32 @@
   <div class="chat-header">
     <div class="left-header">
       <div class="header-title">
-        <%= @current_room.name %>
+        <%= @room.name %>
       </div>
     </div>
     <div class="right-header">
       <div class="header-button">
-        <a rel="nofollow" data-method="delete" href="/rooms/14">チャットを終了する</a>
+        <%= link_to 'チャットを終了する', room_path(@room), data: { turbo_method: :delete } %>
       </div>
     </div>
   </div>
 
 
   <div class="messages">
-    <div class="message">
-      <div class="upper-message">
-        <div class="message-user">
-          TOM
-        </div>
-        <div class="message-date">
-          2023/11/26 12:09:39
-        </div>
-      </div>
-      <div class="lower-message">
-        <div class="message-content">
-          おはよう
-        </div>
-      </div>
-    </div>
-
-    <div class="message">
-      <div class="upper-message">
-        <div class="message-user">
-          TOM
-        </div>
-        <div class="message-date">
-          2023/11/26 12:09:45
-        </div>
-      </div>
-      <div class="lower-message">
-        <div class="message-content">
-          おはよう
-        </div>
-      </div>
-    </div> 
-  </div> 
-
-
-
-  
-  <div class="form">
-  <div class="form-input">
-    <input class="form-message" placeholder= "type a message">
-    <label class="form-image">
-      <span class="image-file">画像</span>
-      <input type="file" class="hidden">
-    </label>
-  </div>
-  <input class="form-submit" type="submit" value="送信">
+  <%= render partial: 'message', collection: @messages %>
 </div>
+
+
+  <%= form_with model: [@room, @message], class: 'form', local: true do |f| %>
+    <div class="form-input">
+      <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
+      <label class="form-image">
+        <span class="image-file">画像</span>
+        <%= f.file_field :image, class: 'hidden' %>
+      </label>
+    </div>
+    <%= f.submit '送信', class: 'form-submit' %>
+  <% end %>
 
 
 </div>
