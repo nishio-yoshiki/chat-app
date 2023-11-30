@@ -7,7 +7,7 @@
     </div>
     <div class="right-header">
       <div class="header-button">
-        <a rel="nofollow" data-method="delete" href="/rooms/14">チャットを終了する</a>
+        <%= link_to 'チャットを終了する', room_path(@room), data: { turbo_method: :delete } %>
       </div>
     </div>
   </div>
