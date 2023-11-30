@@ -3,10 +3,14 @@ class MessagesController < ApplicationController
   before_action :set_current_room, only: [:index, :create]
 
   def index
+    # @rooms = Room.all
+    # @room = Room.find_by(id: params[:room_id])
+    # @messages = @current_room.messages.includes(:user).order(created_at: :asc)
+    # @message = Message.new
     @rooms = Room.all
-    @room = Room.find_by(id: params[:room_id])
-    @messages = @current_room.messages.includes(:user).order(created_at: :asc)
     @message = Message.new
+    @room = Room.find(params[:room_id])
+    @messages = @room.messages.includes(:user)
   end
 
   def new
