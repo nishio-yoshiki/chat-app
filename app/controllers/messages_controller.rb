@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   def index
     @rooms = Room.all
     @room = Room.find_by(id: params[:room_id])
-    @messages = @current_room.messages.order(created_at: :asc)
+    @messages = @current_room.messages.includes(:user).order(created_at: :asc)
     @message = Message.new
   end
 

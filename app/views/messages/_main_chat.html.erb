@@ -14,25 +14,9 @@
 
 
   <div class="messages">
+  <%= render partial: 'message', collection: @messages %>
+</div>
 
-    <% @messages.each do |message| %>
-    <div class="message">
-      <div class="upper-message">
-        <div class="message-user">
-          <%= message.user.name %>
-        </div>
-        <div class="message-date">
-          <%= message.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
-        </div>
-      </div>
-      <div class="lower-message">
-        <div class="message-content">
-          <%= message.content %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  </div> 
 
   <%= form_with model: [@room, @message], class: 'form', local: true do |f| %>
     <div class="form-input">
